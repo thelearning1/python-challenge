@@ -59,18 +59,7 @@ with open(csvpath) as csvfile:
         total += int(row[1])
         profitlist.append(int(row[1]))
         monthlist.append(row[0])
-    pmin = min(profitlist)
-    pmax = max(profitlist)
-    print("Financial Analysis")
-    print('------------------------')
-    print(f"Total Months: {row_num}")
-    print(f"Total: ${total}")
     
-  
-    #print(f"Greatest profit {pmax}")
-    #print(f"Least profit {pmin}")
-
-
 #determine the end of the profit list    
 max_index = len(profitlist)
 
@@ -90,18 +79,35 @@ for item in profitlist:
 chgindex = len(chg_list)
 chgavg = sum(chg_list)/chgindex
 chgavg = round(chgavg,2)
-print(f"Average Change ${chgavg}")
 
-#print(chg_list)
+#establish index numbers across the lists
 increasemax = int(max(chg_list))
 decreasemax = int(min(chg_list))
 incmaxindex = chg_list.index(increasemax)+1
 decmaxindex = chg_list.index(decreasemax)+1
 
-print(f"{decmaxindex} and {incmaxindex}")
 #match up the indices for the month list and the change list
 incmaxmonth = monthlist[incmaxindex]
 decmaxmonth = monthlist[decmaxindex]
 
+#print it all
+print("Financial Analysis")
+print('------------------------')
+print(f"Total Months: {row_num}")
+print(f"Total: ${total}")
+print(f"Average Change ${chgavg}")
 print(f"Greatest Increase in Profits: {incmaxmonth} (${increasemax})")
 print(f"Greatest Decrease in Profits: {decmaxmonth} (${decreasemax})")
+
+#create text file
+with open("Financial Analysis.txt","w") as f:
+  
+  f.write("Financial Analysis\n")
+  f.write('------------------------\n')
+  f.write(f"Total Months: {row_num}\n")
+  f.write(f"Total: ${total}\n")
+  f.write(f"Average Change ${chgavg}\n")
+  f.write(f"Greatest Increase in Profits: {incmaxmonth} (${increasemax})\n")
+  f.write(f"Greatest Decrease in Profits: {decmaxmonth} (${decreasemax})\n")
+  
+  f.close()
