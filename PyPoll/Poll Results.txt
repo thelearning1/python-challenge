@@ -1,0 +1,5 @@
+Total Votes Cast: 3521001
+Candidates in Election: Khan, Correy, Li, O'Tooley
+Percentage of Votes per Candidate: Khan:63% Correy:20% Li:14% O'Tooley:3%
+Votes Per Candidate: {'Khan': 2218231, 'Correy': 704200, 'Li': 492940, "O'Tooley": 105630}
+The winner is... Khan!!
